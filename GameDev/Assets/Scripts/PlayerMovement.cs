@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rigidbody;
     private float lastPosition;
 
+       
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -21,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 jump = new Vector3();
-
+         Vector3 jump = new Vector3(0, 10, 0);
+        
         rigidbody.MoveRotation(rigidbody.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * lookSpeed, 0)));
         rigidbody.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") * moveSpeed) + (transform.right * Input.GetAxis("Horizontal") * moveSpeed));
         jump.Set(0f, Input.GetAxis("Jump"), 0f);
@@ -30,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
         if (!jump.Equals(Vector3.zero) && rigidbody.velocity.y == 0)
             rigidbody.AddRelativeForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
 
-        if (transform.position.y < lastPosition)
-            rigidbody.AddForce(Vector3.down * 20, ForceMode.Force);
+        //if (transform.position.y < lastPosition)
+          //  rigidbody.AddForce(Vector3.down * 20, ForceMode.Force);
         lastPosition = transform.position.y;
-    }
+    } 
 }

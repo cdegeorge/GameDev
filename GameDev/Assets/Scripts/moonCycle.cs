@@ -12,7 +12,7 @@ public class moonCycle : MonoBehaviour
 
     
     void Update() {
-        transform.RotateAround(Vector3.zero, Vector3.right, 10f * Time.deltaTime);
+        transform.RotateAround(Vector3.zero, Vector3.right, 1f * Time.deltaTime);
         transform.LookAt(Vector3.zero);
         // Trees look weird when sun or moon is rising, especially the moon, trying to negate the effect.
         if (transform.position.y < 200 && light.intensity > 0) {
