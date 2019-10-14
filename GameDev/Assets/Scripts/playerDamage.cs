@@ -38,8 +38,7 @@ public class playerDamage : MonoBehaviour
 
         hitLine.enabled = true;
         hitLine.SetPosition(0, linePosition);
-
-        Debug.Log(Physics.Raycast(shootRay, out shootHit, range, shootableMask));
+        
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
             damage damage = shootHit.collider.GetComponent<damage>();
 
