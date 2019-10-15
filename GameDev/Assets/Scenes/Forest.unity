@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
+      propertyPath: arsenal.Array.data[0].rightGun
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
 --- !u!1001 &61321741
