@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - stickPile: {fileID: 1408768874931049075, guid: 5c9542ee01e5b504fa1bba3ff0743ecc,
       type: 3}
+  - rockPile: {fileID: 5968360638851493294, guid: ad156bbf358b8b74998897c5e1701534,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

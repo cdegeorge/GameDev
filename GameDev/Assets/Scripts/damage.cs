@@ -7,6 +7,7 @@ public class damage : MonoBehaviour
     public float health;
     public float currentHealth;
     public GameObject stickPile;
+    public GameObject rockPile;
 
     private bool isDead = false;
 
@@ -24,7 +25,9 @@ public class damage : MonoBehaviour
         if (currentHealth <= 0) {
             Destroy(gameObject);
             Vector3 position = gameObject.transform.position;
-            if (gameObject.CompareTag("Tree")) Instantiate(stickPile, new Vector3(position.x, -5, position.z), gameObject.transform.rotation);
+            Debug.Log(gameObject.name);
+            if (gameObject.CompareTag("Tree")) Instantiate(stickPile, new Vector3(position.x, position.y, position.z), gameObject.transform.rotation);
+            else if (gameObject.CompareTag("Rock")) Instantiate(rockPile, new Vector3(position.x, position.y, position.z), gameObject.transform.rotation);
             isDead = true;
         }
 

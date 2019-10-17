@@ -66,17 +66,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Turning() {
-        Debug.Log("Turning called");
         // Create a ray from the mouse cursor on screen in the direction of the camera.
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.Log(camRay);
 
         // Create a RaycastHit variable to store information about what was hit by the ray.
         RaycastHit floorHit;
 
         // Perform the raycast and if it hits something on the floor layer...
         if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask)) {
-            Debug.Log("if entered");
             // Create a vector from the player to the point on the floor the raycast from the mouse hit.
             Vector3 playerToMouse = floorHit.point - transform.position;
 
@@ -89,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
             // Set the player's rotation to this new rotation.
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, .03f);
             //rigidbody.MoveRotation(newRotation);
-            Debug.Log(newRotation);
         }
     }
 }
