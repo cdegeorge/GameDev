@@ -26,7 +26,6 @@ public class playerDamage : MonoBehaviour
         timer += Time.deltaTime;
 
         if(Input.GetButton("Fire1") && timer >= timeBetweenHits) {
-            Debug.Log("Running");
             DoDamage();
         }
     }
