@@ -8,30 +8,45 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpSpeed;
     public float lookSpeed;
+    public float capSpeed = 1;
     
     private bool isGrounded = true;
+    private float startTime;
+    private float journeyLength = .5f;
+    private float dist;
+    private float fracOfJourney;
+    private Vector3 start = new Vector3(0, .5f, 0);
+    private Vector3 end = new Vector3(0, 1, 0);
     private Rigidbody rigidbody;
-    private float lastPosition;
     Actions actions;
-    Vector3 currentPos;
-    Vector3 targetPos;
+    CapsuleCollider capCollider;
 
     private void Start()
     {
         actions = GetComponent<Actions>();
         rigidbody = GetComponent<Rigidbody>();
-        lastPosition = transform.position.y;
+        capCollider = GetComponent<CapsuleCollider>();
         Time.timeScale = 1;
     }
 
     private void FixedUpdate()
     {
-        currentPos = transform.position;
         Look();
         Jump();
-        Walk();         
+        Walk();        
     }
-    
+
+     private void Update() {
+        if (!isGrounded) {
+            dist = (Time.time - startTime) * capSpeed;
+            fracOfJourney = dist / journeyLength;
+            capCollider.center = Vector3.Lerp(start, end, fracOfJourney);
+        }
+        else {
+            capCollider.center = Vector3.Lerp(end, start, fracOfJourney);
+        }
+    } 
+
     void Look() {
         if (Input.GetAxis("Mouse X") >= .01 || Input.GetAxis("Mouse X") <= .01)
             rigidbody.MoveRotation(rigidbody.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * lookSpeed, 0)));
@@ -41,10 +56,12 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             actions.Jump();
             rigidbody.AddRelativeForce(Vector3.up * jumpSpeed);
+            startTime = Time.time;
         }
         else {
-            if(transform.position.y < .6f)
+            if (transform.position.y < .6f) {
                 isGrounded = true;
+            }
         }
     }
 
