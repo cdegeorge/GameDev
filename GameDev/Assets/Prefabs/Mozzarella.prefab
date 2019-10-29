@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 8931262151015828820}
   - component: {fileID: 7471911334505254188}
   - component: {fileID: 3963211531721496921}
-  m_Layer: 0
+  - component: {fileID: 5085649080194313869}
+  - component: {fileID: 1726145213643898497}
+  m_Layer: 10
   m_Name: Mozzarella
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,3 +130,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.11665301, z: 0.032861557}
   m_Center: {x: 0.0000551939, y: 0.058584094, z: 0.00054764934}
+--- !u!114 &5085649080194313869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931262151015828821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395f9cd7bf0dce24eb72b523b15402a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  currentHealth: 5
+  stickPile: {fileID: 1408768874931049075, guid: 5c9542ee01e5b504fa1bba3ff0743ecc,
+    type: 3}
+  rockPile: {fileID: 0}
+--- !u!195 &1726145213643898497
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931262151015828821}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.05150693
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.12
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
