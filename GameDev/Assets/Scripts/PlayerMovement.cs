@@ -8,15 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpSpeed;
     public float lookSpeed;
-    public float capSpeed = 1;
-    
-    private bool isGrounded = true;
+
     private float startTime;
-    private float journeyLength = .5f;
-    private float dist;
-    private float fracOfJourney;
-    private Vector3 start = new Vector3(0, .5f, 0);
-    private Vector3 end = new Vector3(0, 1, 0);
+    private bool isGrounded = true;
     private Rigidbody rigidbody;
     Actions actions;
     CapsuleCollider capCollider;
@@ -36,16 +30,6 @@ public class PlayerMovement : MonoBehaviour
         Walk();        
     }
 
-     private void Update() {
-        if (!isGrounded) {
-            dist = (Time.time - startTime) * capSpeed;
-            fracOfJourney = dist / journeyLength;
-            capCollider.center = Vector3.Lerp(start, end, fracOfJourney);
-        }
-        else {
-            capCollider.center = Vector3.Lerp(end, start, fracOfJourney);
-        }
-    } 
 
     void Look() {
         if (Input.GetAxis("Mouse X") >= .01 || Input.GetAxis("Mouse X") <= .01)
