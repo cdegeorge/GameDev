@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3771472876850501949}
   - component: {fileID: 778713119111580076}
   - component: {fileID: 8693527767805941092}
+  - component: {fileID: 6106233236975964190}
   - component: {fileID: 6980813734723295480}
   m_Layer: 10
   m_Name: Cheese
@@ -101,6 +102,19 @@ MonoBehaviour:
   stickPile: {fileID: 1408768874931049075, guid: 5c9542ee01e5b504fa1bba3ff0743ecc,
     type: 3}
   rockPile: {fileID: 0}
+--- !u!114 &6106233236975964190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270493453850152621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf01af1b113e541823c081eab2afb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!195 &6980813734723295480
 NavMeshAgent:
   m_ObjectHideFlags: 0

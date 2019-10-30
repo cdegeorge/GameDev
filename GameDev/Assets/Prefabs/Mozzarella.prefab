@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7471911334505254188}
   - component: {fileID: 3963211531721496921}
   - component: {fileID: 5085649080194313869}
+  - component: {fileID: 3358378481780220252}
   - component: {fileID: 1726145213643898497}
   m_Layer: 10
   m_Name: Mozzarella
@@ -147,6 +148,19 @@ MonoBehaviour:
   stickPile: {fileID: 1408768874931049075, guid: 5c9542ee01e5b504fa1bba3ff0743ecc,
     type: 3}
   rockPile: {fileID: 0}
+--- !u!114 &3358378481780220252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931262151015828821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf01af1b113e541823c081eab2afb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
 --- !u!195 &1726145213643898497
 NavMeshAgent:
   m_ObjectHideFlags: 0
