@@ -829,28 +829,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117271668}
-  - component: {fileID: 117271667}
   m_Layer: 0
-  m_Name: CheeseSpawnPoint
+  m_Name: SpawnPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &117271667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117271666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4119fb6a9efe8e1419c220619a8909c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 1270493453850152621, guid: ef4b2a01c3aea5440a58032dd6ae6b95, type: 3}
-  spawnTime: 3
 --- !u!4 &117271668
 Transform:
   m_ObjectHideFlags: 0
@@ -1583,6 +1568,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 281497382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &318611026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318611028}
+  - component: {fileID: 318611027}
+  m_Layer: 0
+  m_Name: ManagerContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &318611027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318611026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4119fb6a9efe8e1419c220619a8909c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 1
+  cheese: {fileID: 1270493453850152621, guid: ef4b2a01c3aea5440a58032dd6ae6b95, type: 3}
+  joghurt: {fileID: 5707094814022687518, guid: 4ef3d41aab39d80428694aba3098c1de, type: 3}
+  milk: {fileID: 2072512476971969741, guid: a05916f20bb886f499010ba78b2d654b, type: 3}
+  mozzarella: {fileID: 8931262151015828821, guid: 35501d0507df85e45aa03437e9fd3a82,
+    type: 3}
+  spawnpoints:
+  - {fileID: 117271666}
+  - {fileID: 1505812054}
+  - {fileID: 1188366376}
+  - {fileID: 1625719662}
+--- !u!4 &318611028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318611026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -33.421555, y: 4.2216387, z: -18.147999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &323213584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2023517909, guid: 1d7cf80ff985b3d4da86a46d77ed1a1e,
@@ -4942,28 +4981,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1188366378}
-  - component: {fileID: 1188366377}
   m_Layer: 0
-  m_Name: MilkSpawnPoint
+  m_Name: SpawnPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1188366377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188366376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4119fb6a9efe8e1419c220619a8909c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 2072512476971969741, guid: a05916f20bb886f499010ba78b2d654b, type: 3}
-  spawnTime: 3
 --- !u!4 &1188366378
 Transform:
   m_ObjectHideFlags: 0
@@ -5696,28 +5720,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505812056}
-  - component: {fileID: 1505812055}
   m_Layer: 0
-  m_Name: JoghutSpawnPoint
+  m_Name: SpawnPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1505812055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505812054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4119fb6a9efe8e1419c220619a8909c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 5707094814022687518, guid: 4ef3d41aab39d80428694aba3098c1de, type: 3}
-  spawnTime: 3
 --- !u!4 &1505812056
 Transform:
   m_ObjectHideFlags: 0
@@ -6223,28 +6232,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1625719664}
-  - component: {fileID: 1625719663}
   m_Layer: 0
-  m_Name: MozzarellaSpawnPoint
+  m_Name: SpawnPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1625719663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625719662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4119fb6a9efe8e1419c220619a8909c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 8931262151015828821, guid: 35501d0507df85e45aa03437e9fd3a82, type: 3}
-  spawnTime: 3
 --- !u!4 &1625719664
 Transform:
   m_ObjectHideFlags: 0
