@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private Transform sunPosition;
-    private int nightNumber = 3;
+    private int nightNumber = 1;
     private bool isNight = false;
 
     private void Awake()
