@@ -6,8 +6,8 @@ public class TurretManager : MonoBehaviour
 {
     public int damagePerHit = 50;
     public float timeBetweenHits = 1f;
-    public float range = 50f;
-    public GameObject barrel;
+    public float range = 500f;
+    public Transform barrel;
 
     float timer;
     Ray shootray;
@@ -19,24 +19,26 @@ public class TurretManager : MonoBehaviour
     private void Awake() {
         shootableMask = LayerMask.GetMask("Shootable");
         hitLine = GetComponent<LineRenderer>();
+        timer = timeBetweenHits;
     }
 
     private void Update() {
-        timer += Time.deltaTime;
     }
 
     private void OnTriggerStay(Collider other) {
+        timer--; ;
         if (other.tag == "Enemy") {
             transform.LookAt(other.transform);
-            Fire(other.transform);
+            if (timer <= 0f)
+                Fire(other.transform);
         }
     }
 
     void Fire (Transform target) {
-        timer = 0f;
-        linePosition = barrel.transform.position;
+        timer = 1f;
+        linePosition = barrel.position;
         shootray.origin = linePosition;
-        shootray.direction = target.transform.position;
+        shootray.direction = Vector3.forward;
 
         hitLine.enabled = true;
         hitLine.SetPosition(0, linePosition);
@@ -49,7 +51,9 @@ public class TurretManager : MonoBehaviour
                 Debug.Log("Turret: Damage Sent");
             }
 
-            hitLine.SetPosition(1, shootHit.point);
+            hitLine.SetPosition(1, target.position);
         }
+        Debug.Log(target.position);
+
     }
 }
