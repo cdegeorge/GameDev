@@ -9,7 +9,7 @@ public class TurretManager : MonoBehaviour
     public float range = 500f;
     public Transform barrel;
 
-    float timer;
+    float timer = 1f;
     Ray shootray;
     RaycastHit shootHit;
     int shootableMask;
@@ -22,28 +22,33 @@ public class TurretManager : MonoBehaviour
         timer = timeBetweenHits;
     }
 
-    private void Update() {
-    }
 
     private void OnTriggerStay(Collider other) {
-        timer--; ;
+        timer -= 1f * Time.deltaTime;
         if (other.tag == "Enemy") {
             transform.LookAt(other.transform);
-            if (timer <= 0f)
+            if (timer <= 0f) {
+                Debug.Log("Shot fired");
                 Fire(other.transform);
+            }
         }
     }
 
     void Fire (Transform target) {
+        Debug.Log("Shot at: " + target.position);
         timer = 1f;
         linePosition = barrel.position;
         shootray.origin = linePosition;
-        shootray.direction = Vector3.forward;
+        Debug.Log("Shot Origin: " + shootray.origin);
+        shootray.direction = target.position.normalized;
+        Debug.Log("Target Direction: " + target.position);
+        Debug.Log("Shot Direction: " + shootray.direction);
 
         hitLine.enabled = true;
         hitLine.SetPosition(0, linePosition);
 
         if (Physics.Raycast(shootray, out shootHit, range, shootableMask)) {
+            Debug.Log("Shot Collided: " + shootHit);
             damage damage = shootHit.collider.GetComponent<damage>();
 
             if (damage != null) {
