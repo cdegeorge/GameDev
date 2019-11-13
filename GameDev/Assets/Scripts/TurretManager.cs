@@ -6,7 +6,7 @@ public class TurretManager : MonoBehaviour
 {
     public int damagePerHit = 50;
     public float timeBetweenHits = 1f;
-    public float range = 500f;
+    public float range = 50f;
     public Transform barrel;
 
     float timer = 1f;
@@ -22,14 +22,13 @@ public class TurretManager : MonoBehaviour
         timer = timeBetweenHits;
     }
 
-
     private void OnTriggerStay(Collider other) {
         timer -= 1f * Time.deltaTime;
         if (other.tag == "Enemy") {
             transform.LookAt(other.transform);
             if (timer <= 0f) {
                 Debug.Log("Shot fired");
-                Fire(other.transform);
+                Fire(other.transform);         
             }
         }
     }
@@ -39,25 +38,19 @@ public class TurretManager : MonoBehaviour
         timer = 1f;
         linePosition = barrel.position;
         shootray.origin = linePosition;
-        Debug.Log("Shot Origin: " + shootray.origin);
-        shootray.direction = target.position.normalized;
-        Debug.Log("Target Direction: " + target.position);
-        Debug.Log("Shot Direction: " + shootray.direction);
-
-        hitLine.enabled = true;
-        hitLine.SetPosition(0, linePosition);
+        shootray.direction = barrel.forward;
 
         if (Physics.Raycast(shootray, out shootHit, range, shootableMask)) {
-            Debug.Log("Shot Collided: " + shootHit);
+            Debug.Log("Shot Collided");
             damage damage = shootHit.collider.GetComponent<damage>();
 
             if (damage != null) {
                 damage.TakeDamage(damagePerHit);
-                Debug.Log("Turret: Damage Sent");
             }
-
-            hitLine.SetPosition(1, target.position);
-        }
+            hitLine.enabled = true;
+            hitLine.SetPosition(0, linePosition);
+            hitLine.SetPosition(1, shootHit.transform.position);            
+        } 
 
     }
 }

@@ -36,6 +36,9 @@ public class damage : MonoBehaviour
                 Instantiate(rockPile, new Vector3(position.x, -22.6f, position.z), gameObject.transform.rotation);
                 Destroy(gameObject);
             }
+            else if (gameObject.CompareTag("Enemy")) {
+                Destroy(gameObject);
+            }
             isDead = true;
         }
 

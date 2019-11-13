@@ -8,8 +8,8 @@ public class PlayerPickup : MonoBehaviour
     public Text rockText;
     public Text stickText;
 
-    private int rockNumber = 0;
-    private int stickNumber = 0;
+    protected int rockNumber = 5;
+    protected int stickNumber = 3;
 
     void Update()
     {
