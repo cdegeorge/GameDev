@@ -8,6 +8,8 @@ TagManager:
   - Rock
   - Ground
   - Enemy
+  - RockPile
+  - StickPile
   layers:
   - Default
   - TransparentFX

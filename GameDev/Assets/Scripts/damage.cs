@@ -27,12 +27,14 @@ public class damage : MonoBehaviour
             if (gameObject.CompareTag("Tree"))
             {
                 Vector3 position = gameObject.transform.position;
-                Instantiate(stickPile, new Vector3(position.x, position.y, position.z), gameObject.transform.rotation);
+                Instantiate(stickPile, new Vector3(position.x, -5.07f, position.z), gameObject.transform.rotation);
+                Destroy(gameObject);
             }
             else if (gameObject.CompareTag("Rock"))
             {
                 Vector3 position = gameObject.transform.position;
-                Instantiate(rockPile, new Vector3(position.x, position.y, position.z), gameObject.transform.rotation);
+                Instantiate(rockPile, new Vector3(position.x, -22.6f, position.z), gameObject.transform.rotation);
+                Destroy(gameObject);
             }
             isDead = true;
         }

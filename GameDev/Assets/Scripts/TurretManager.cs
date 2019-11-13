@@ -53,7 +53,6 @@ public class TurretManager : MonoBehaviour
 
             hitLine.SetPosition(1, target.position);
         }
-        Debug.Log(target.position);
 
     }
 }
