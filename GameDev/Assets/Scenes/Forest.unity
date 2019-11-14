@@ -597,6 +597,10 @@ PrefabInstance:
       propertyPath: stickText
       value: 
       objectReference: {fileID: 702546476}
+    - target: {fileID: 1007410467, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
+      propertyPath: playerPickupObject
+      value: 
+      objectReference: {fileID: 1533454019}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
 --- !u!1001 &61321741
@@ -5820,6 +5824,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7cf80ff985b3d4da86a46d77ed1a1e, type: 3}
+--- !u!1 &1533454019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 476369236, guid: 398da42bc4f6f6e44852a9f96c6c4e41,
+    type: 3}
+  m_PrefabInstance: {fileID: 52642809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1576848622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2023517909, guid: 1d7cf80ff985b3d4da86a46d77ed1a1e,

@@ -7,9 +7,10 @@ public class PlayerPickup : MonoBehaviour
 {
     public Text rockText;
     public Text stickText;
-
-    protected int rockNumber = 5;
-    protected int stickNumber = 3;
+    public int rockPickupNumber = 5;
+    public int stickPickupNumber = 3;
+    public int rockNumber = 0;
+    public int stickNumber = 0;
 
     void Update()
     {
@@ -19,12 +20,12 @@ public class PlayerPickup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)) {
             if (other.CompareTag("RockPile")) {
-                rockNumber++;
+                rockNumber += rockPickupNumber;
                 rockText.text = "Rocks: " + rockNumber;
                 Destroy(other.gameObject);
             }
             else if (other.CompareTag("StickPile")) {
-                stickNumber++;
+                stickNumber += stickPickupNumber;
                 stickText.text = "Sticks: " + stickNumber;
                 Destroy(other.gameObject);
             }

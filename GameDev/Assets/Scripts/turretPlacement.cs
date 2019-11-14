@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turretPlacement : PlayerPickup
+public class turretPlacement : MonoBehaviour
 {
     public GameObject turret;
+    public GameObject playerPickupObject;
 
-    Vector3 position;
+    private Vector3 position;
+    private PlayerPickup playerPickup;
+
+    private void Start()
+    {
+        playerPickup = playerPickupObject.GetComponent<PlayerPickup>();
+    }
 
     private void Update() {
-        position = transform.position + new Vector3(0,0, 5f);
-        if (Input.GetKeyDown(KeyCode.T) && rockNumber >= 5 && stickNumber >= 3) {
+        if (Input.GetKeyDown(KeyCode.T) && playerPickup.rockNumber >= 5 && playerPickup.stickNumber >= 3) {
+            position = transform.position + new Vector3(0, 0, 5f);
+
             Instantiate(turret, position , Quaternion.identity);
-            rockNumber -= 5;
-            stickNumber -= 3;
+            playerPickup.rockNumber -= 5;
+            playerPickup.stickNumber -= 3;
         }
     }
 }
