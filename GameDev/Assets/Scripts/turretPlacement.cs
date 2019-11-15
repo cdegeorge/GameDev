@@ -6,6 +6,7 @@ public class turretPlacement : MonoBehaviour
 {
     public GameObject turret;
     public GameObject playerPickupObject;
+    public Transform objSpawn;
 
     private Vector3 position;
     private PlayerPickup playerPickup;
@@ -16,8 +17,8 @@ public class turretPlacement : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.T) && playerPickup.rockNumber >= 5 && playerPickup.stickNumber >= 3) {
-            position = transform.position + new Vector3(0, 0, 5f);
+        if (Input.GetKeyDown(KeyCode.T) && playerPickup.rockNumber >= 15 && playerPickup.stickNumber >= 18) {
+            position = objSpawn.position;
 
             Instantiate(turret, position , Quaternion.identity);
             playerPickup.rockNumber -= 5;

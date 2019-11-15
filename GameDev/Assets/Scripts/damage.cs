@@ -8,6 +8,7 @@ public class damage : MonoBehaviour
     public float currentHealth;
     public GameObject stickPile;
     public GameObject rockPile;
+    public Transform player;
 
     private bool isDead = false;
 
@@ -16,7 +17,7 @@ public class damage : MonoBehaviour
     }
 
     
-    public void TakeDamage(float amount /*Vector3 hitPoint*/) {
+    public void TakeDamage(float amount) {
         if(isDead) {
             return;
         }
@@ -26,14 +27,16 @@ public class damage : MonoBehaviour
 
             if (gameObject.CompareTag("Tree"))
             {
-                Vector3 position = gameObject.transform.position;
-                Instantiate(stickPile, new Vector3(position.x, -5.07f, position.z), gameObject.transform.rotation);
+                Vector3 position = new Vector3(player.position.x, player.position.y, player.position.z > 0 ? player.position.z + 1 : player.position.z - 1);
+                Instantiate(stickPile, position, gameObject.transform.rotation);
                 Destroy(gameObject);
             }
-            else if (gameObject.CompareTag("Rock"))
+            else if (gameObject.CompareTag("Rock")) 
             {
-                Vector3 position = gameObject.transform.position;
-                Instantiate(rockPile, new Vector3(position.x, -22.6f, position.z), gameObject.transform.rotation);
+                Vector3 position = player.position;
+                Debug.Log("Player Position: " + player.position);
+                Debug.Log("Rock Position: " + position);
+                Instantiate(rockPile, position, Quaternion.identity);
                 Destroy(gameObject);
             }
             else if (gameObject.CompareTag("Enemy")) {

@@ -19,7 +19,7 @@ public class playerDamage : MonoBehaviour
         // Create a layer mask for the Shootable layer.
         shootableMask = LayerMask.GetMask("Shootable");
 
-        hitLine = GetComponent<LineRenderer>();
+        //hitLine = GetComponent<LineRenderer>();
     }
 
     private void Update() {
@@ -36,8 +36,8 @@ public class playerDamage : MonoBehaviour
         shootRay.origin = linePosition;
         shootRay.direction = transform.forward;
 
-        hitLine.enabled = true;
-        hitLine.SetPosition(0, linePosition);
+        //hitLine.enabled = true;
+        //hitLine.SetPosition(0, linePosition);
         
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
             damage damage = shootHit.collider.GetComponent<damage>();
@@ -47,11 +47,11 @@ public class playerDamage : MonoBehaviour
                 Debug.Log("Damage Sent");
             }
 
-            hitLine.SetPosition(1, shootHit.point);
+            //hitLine.SetPosition(1, shootHit.point);
         }
         else {
             // ... set the second position of the line renderer to the fullest extent of the gun's range.
-            hitLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            //hitLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
             //Debug.Log("No Damage");
         }
     }
