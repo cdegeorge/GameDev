@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;                           
-    public int currentHealth;                                   
+    public int currentHealth;
+    public GameObject gameOverScreen;
     public Slider healthSlider;                                 
     public Image damageImage;                                   
     //public AudioClip deathClip;                                 
@@ -20,7 +19,6 @@ public class PlayerHealth : MonoBehaviour
     bool isDead;                                               
     bool damaged;                                               
 
-
     void Awake() {
         anim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
@@ -28,7 +26,6 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth = startingHealth;
     }
-
 
     void Update() {
         if (damaged) {
@@ -41,13 +38,14 @@ public class PlayerHealth : MonoBehaviour
         damaged = false;
     }
 
-
     public void TakeDamage(int amount) {
         damaged = true;
         currentHealth -= amount;
         healthSlider.value = currentHealth;
         if (currentHealth <= 0 && !isDead) {
-            //Death();
+            isDead = true;
+            Time.timeScale = 0;
+            gameOverScreen.SetActive(true);
         }
     }    
 }

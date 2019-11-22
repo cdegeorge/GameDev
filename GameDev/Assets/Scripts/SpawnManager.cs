@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     public float spawnTime = 1f;
+    public int nightNumber = 1;
     public GameObject cheese;
     public GameObject joghurt;
     public GameObject milk;
     public GameObject mozzarella;
     public GameObject[] spawnpoints;
+    public Text nightNumberText;
 
     private PlayerHealth playerHealth;
     private Transform sunPosition;
-    private int nightNumber = 1;
     private bool isNight = false;
 
     private void Awake()
@@ -31,6 +33,7 @@ public class SpawnManager : MonoBehaviour
             isNight = true;
             startWave(nightNumber);
             nightNumber++;
+            nightNumberText.text = "Night " + nightNumber;
         }
         else if (sunPosition.position.y > 0 && isNight)
             isNight = false;
