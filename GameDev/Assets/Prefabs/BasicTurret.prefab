@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6309663573935968439}
+  - component: {fileID: 1621347304}
   m_Layer: 0
   m_Name: barrelEnd
   m_TagString: Untagged
@@ -30,6 +31,44 @@ Transform:
   m_Father: {fileID: 6309663575233027436}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1621347304
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309663573935968440}
+  m_Enabled: 0
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 0.06377987, b: 0, a: 1}
+  m_Intensity: 40.57
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &6309663575232987464
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,9 +234,9 @@ GameObject:
   - component: {fileID: 6309663575233027436}
   - component: {fileID: 6309663575223480970}
   - component: {fileID: 6309663575232890855}
-  - component: {fileID: 6309663575232890854}
   - component: {fileID: 6309663575232890856}
   - component: {fileID: 559462031}
+  - component: {fileID: 1525385657629471911}
   m_Layer: 0
   m_Name: BasicTurret
   m_TagString: Untagged
@@ -255,7 +294,38 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!120 &6309663575232890854
+--- !u!114 &6309663575232890856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309663575232987468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e081c4075c921e4080a8937a0df0146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerHit: 50
+  timeBetweenHits: 1
+  range: 500
+  barrel: {fileID: 6309663573935968439}
+  barrelLight: {fileID: 1621347304}
+--- !u!136 &559462031
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309663575232987468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5828896
+  m_Height: 1.2967538
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.4625786, z: 0}
+--- !u!120 &1525385657629471911
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,8 +372,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.5
-        value: 0.11494255
+        time: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -350,36 +420,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &6309663575232890856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309663575232987468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e081c4075c921e4080a8937a0df0146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerHit: 50
-  timeBetweenHits: 1
-  range: 500
-  barrel: {fileID: 6309663573935968439}
---- !u!136 &559462031
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309663575232987468}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5828896
-  m_Height: 1.2967538
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.4625786, z: 0}
 --- !u!1 &6309663575232987470
 GameObject:
   m_ObjectHideFlags: 0

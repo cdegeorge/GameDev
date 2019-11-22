@@ -23,6 +23,8 @@ public class turretPlacement : MonoBehaviour
             Instantiate(turret, position , Quaternion.identity);
             playerPickup.rockNumber -= 5;
             playerPickup.stickNumber -= 3;
+            playerPickup.rockText.text = "Rocks: " + playerPickup.rockNumber;
+            playerPickup.stickText.text = "Sticks: " + playerPickup.stickNumber;
         }
     }
 }

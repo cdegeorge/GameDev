@@ -8,8 +8,10 @@ public class TurretManager : MonoBehaviour
     public float timeBetweenHits = 1f;
     public float range = 50f;
     public Transform barrel;
+    public Light barrelLight;
 
-    float timer = 1f;
+    float timer = 0f;
+    float effectDisplayTime = .14f;
     Ray shootray;
     RaycastHit shootHit;
     int shootableMask;
@@ -19,37 +21,47 @@ public class TurretManager : MonoBehaviour
     private void Awake() {
         shootableMask = LayerMask.GetMask("Shootable");
         hitLine = GetComponent<LineRenderer>();
-        timer = timeBetweenHits;
+        hitLine.enabled = false;
+        barrelLight.enabled = false;
+    }
+
+    private void Update() {
+        timer += Time.deltaTime;
+        if (timer >= effectDisplayTime) {
+            DisableEffects();
+        }
     }
 
     private void OnTriggerStay(Collider other) {
-        timer -= 1f * Time.deltaTime;
         if (other.tag == "Enemy") {
             transform.LookAt(other.transform);
-            if (timer <= 0f) {
-                Debug.Log("Shot fired");
+            if (timer >= timeBetweenHits) {
                 Fire(other.transform);         
             }
         }
     }
 
+    void DisableEffects() {
+        hitLine.enabled = false;
+        barrelLight.enabled = false;
+    }
+
     void Fire (Transform target) {
-        Debug.Log("Shot at: " + target.position);
-        timer = 1f;
+        timer = 0f;
         linePosition = barrel.position;
         shootray.origin = linePosition;
         shootray.direction = barrel.forward;
 
         if (Physics.Raycast(shootray, out shootHit, range, shootableMask)) {
-            Debug.Log("Shot Collided");
             damage damage = shootHit.collider.GetComponent<damage>();
 
             if (damage != null) {
                 damage.TakeDamage(damagePerHit);
             }
             hitLine.enabled = true;
+            barrelLight.enabled = true;
             hitLine.SetPosition(0, linePosition);
-            hitLine.SetPosition(1, shootHit.transform.position);            
+            hitLine.SetPosition(1, shootHit.transform.position); 
         } 
 
     }

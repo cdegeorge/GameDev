@@ -11,12 +11,17 @@ public class SpawnManager : MonoBehaviour
     public GameObject joghurt;
     public GameObject milk;
     public GameObject mozzarella;
+    public GameObject tree;
+    public GameObject rock;
     public GameObject[] spawnpoints;
     public Text nightNumberText;
+    public Transform[] treeArray;
+    public Transform[] rockArray;
 
     private PlayerHealth playerHealth;
     private Transform sunPosition;
     private bool isNight = false;
+    private int shootable;
 
     private void Awake()
     {
@@ -24,19 +29,36 @@ public class SpawnManager : MonoBehaviour
         GameObject sun = GameObject.Find("Sun");
         playerHealth = player.GetComponent<PlayerHealth>();
         sunPosition = sun.transform;
+        shootable = LayerMask.GetMask("Shootable");
     }
 
     private void Update()
     {
-        if (sunPosition.position.y <= 0 && !isNight)
-        {
+        if (sunPosition.position.y <= 0 && !isNight) {
             isNight = true;
             startWave(nightNumber);
             nightNumber++;
-            nightNumberText.text = "Night " + nightNumber;
+            nightNumberText.text = "Night " + (nightNumber - 1) ;
         }
-        else if (sunPosition.position.y > 0 && isNight)
+        else if (sunPosition.position.y > 0 && isNight) {
             isNight = false;
+            ReplaceResources();
+        }
+    }
+
+    void ReplaceResources() {
+        for (int i = 0; i < treeArray.Length; i++) {
+            Collider[] intersection = Physics.OverlapSphere(treeArray[i].position, .2f, shootable);
+            if (intersection.Length == 0) {
+                Instantiate(tree, treeArray[i].position, Quaternion.identity);
+            }
+        }
+        for (int i = 0; i < rockArray.Length; i++) {
+            Collider[] intersection = Physics.OverlapSphere(rockArray[i].position, 1f, shootable);
+            if (intersection.Length == 0) {
+                Instantiate(rock, rockArray[i].position, Quaternion.identity);
+            }
+        }
     }
 
     private void startWave(int waveNumber)
