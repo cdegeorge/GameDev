@@ -17,12 +17,14 @@ public class TurretManager : MonoBehaviour
     int shootableMask;
     LineRenderer hitLine;
     Vector3 linePosition;
+    AudioSource audio;
 
     private void Awake() {
         shootableMask = LayerMask.GetMask("Shootable");
         hitLine = GetComponent<LineRenderer>();
         hitLine.enabled = false;
         barrelLight.enabled = false;
+        audio = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -61,7 +63,8 @@ public class TurretManager : MonoBehaviour
             hitLine.enabled = true;
             barrelLight.enabled = true;
             hitLine.SetPosition(0, linePosition);
-            hitLine.SetPosition(1, shootHit.transform.position); 
+            hitLine.SetPosition(1, shootHit.transform.position);
+            audio.Play();
         } 
 
     }

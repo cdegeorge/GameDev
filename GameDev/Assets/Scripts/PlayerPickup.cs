@@ -11,6 +11,7 @@ public class PlayerPickup : MonoBehaviour
     public int stickPickupNumber = 3;
     public int rockNumber = 0;
     public int stickNumber = 0;
+    public AudioSource[] pickups;
 
     void Update()
     {
@@ -23,11 +24,13 @@ public class PlayerPickup : MonoBehaviour
                 rockNumber += rockPickupNumber;
                 rockText.text = "Rocks: " + rockNumber;
                 Destroy(other.gameObject);
+                pickups[0].Play();
             }
             else if (other.CompareTag("StickPile")) {
                 stickNumber += stickPickupNumber;
                 stickText.text = "Sticks: " + stickNumber;
                 Destroy(other.gameObject);
+                pickups[1].Play();
             }
 
         }

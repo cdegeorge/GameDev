@@ -12,8 +12,11 @@ public class damage : MonoBehaviour
 
     private bool isDead = false;
 
+    AudioSource audio;
+
     void Awake() {
         currentHealth = health;
+        audio = GetComponent<AudioSource>();
     }
 
     
@@ -22,6 +25,8 @@ public class damage : MonoBehaviour
             return;
         }
         currentHealth -= amount;
+        if (audio != null)
+            audio.Play();
 
         if (currentHealth <= 0) {
 
